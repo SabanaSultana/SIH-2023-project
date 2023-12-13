@@ -59,7 +59,7 @@ function App() {
   //   setLangClose(false);
   // }
   return (
-    <div className="App h-screen">
+    <div className="App h-screen overflow-y-hidden">
       <div className=" parent box w-[420px] h-full bg-white  mx-auto border-0 border-grey-100 rounded-2xl drop-shadow-2xl flex flex-col ">
           <div className="navigationMenu  fixed_item fixed-first ">
             <NavBar
@@ -73,14 +73,14 @@ function App() {
            
           
            `} >
-            <div className={` scrolling-content midbar mx-3
+            <div className={` scrolling-content midbar mx-3 overflow-x-hidden
             ${isAboutVisible?"":"hidden"}
             ${isChatVisible? "" :"hidden"}
             ${isLanguageVisiable? "" :"hidden"}
              
             `}>
              <FormSection />
-            <Cards />
+            <Cards  />
             </div>
             <div className={`chatBox fixed_item fixed-last z-0
               `} 
@@ -110,34 +110,10 @@ function App() {
           <AboutSection/>
         </div>
          
-       <div className={`
-           chat-section absolute top-20  flex gap-1 flex-col
-           ${isChatVisible? "hidden":""}
-           `}>
-           
-            <div className="input   chat-container ml-20 ">
-                <UserInput/>
-            </div>
-            <div className="output  mr-16">
-              <Output
-               conVenience={conVenienceHandler}
-               feedBack={feedBackHandler}
-              />
-            </div>
-        </div>        
-          <div className={`languages   fixed bottom-0 border bc rounded-tl-[40px] rounded-tr-[40px] w-[420px]  bg-white box-content animated-element bg-white  z-10
-           ${isLanguageVisiable?"hidden" :""}`}
-  
-          >           
-            <Language/>
-          </div>
+            
+                            
+         
         
-      <div className={`inConvenience absolute top-60  bg-gray-200  border bc  w-[85%]  ml-8 rounded-[10px]  
-       ${isConvent ?"" :"hidden"}
-       
-      `}>
-        <Inconvenience/>
-      </div>
       <div className={`feedback  absolute top-60 left-20 bg-gray-200  border bc rounded-[10px] 
        ${isFeedback?"":"hidden"}
       `}>

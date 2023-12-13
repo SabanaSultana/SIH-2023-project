@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 // import ThanksComponent from './ThanksComponent';
-export default function Inconvenience() {
+export default function Inconvenience({setShowPopUp,showPopUp}) {
   const [inputValue, setInputValue] = useState('');
   const handleClearClick = () => {
     setInputValue(''); 
@@ -13,15 +13,18 @@ export default function Inconvenience() {
     // setThanksVisibility(true);
 
   };
+  const closeHandler=()=>{
+    setShowPopUp(false);
+  }
   
   return (
-    <>
+    <div className='inConvenience absolute top-60  bg-gray-200  border bc  w-[70%]   ml-8 rounded-[10px] '>
     {isComponentVisible && (
      <div>
         <div className="titleBar flex  justify-center items-center relatiive border-b-2 bc pb-2 pt-2  ">
           <div className="text montserrat ">Sorry for your inconvenience</div>
           <div className="sound absolute top-3 right-6 ">
-            <img src={process.env.PUBLIC_URL + '/Close Button.png'} alt="Error Loading image" className='w-[13px]' />
+            <img src={process.env.PUBLIC_URL + '/Close Button.png'} alt="Error Loading image" className='w-[13px]'  onClick={closeHandler}/>
           </div>
       </div>
       <div className="details flex flex-col pl-6 pt-5  ">
@@ -46,6 +49,6 @@ export default function Inconvenience() {
       </div>
       ) }
       {/* {isThanksVisible && <ThanksComponent />} */}
-      </>
+      </div>
   )
 }
