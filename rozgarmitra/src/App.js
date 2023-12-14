@@ -8,7 +8,7 @@ import Login from "./Components/Login";
 import LoginDetails from "./Components/LoginDetails";
 import Language from "./Components/Language";
 import AboutSection from "./Components/AboutSection";
-import UserInput from "./Components/UserInput";
+import Input from "./Components/Input";
 import Output from "./Components/Output";
 import Feedback from "./Components/Feedback";
 import Inconvenience from "./Components/Inconvenience";
@@ -16,14 +16,18 @@ import Inconvenience from "./Components/Inconvenience";
 function App() {
   const [isScreenPartVisible, setIsScreenPartVisible] = useState(true);
   const [isCardsVisible, setIsCardsVisible] = useState(true);
-  const [isAboutVisible, setIsAboutVisible] = useState(true);
-  const [isLanguageVisiable, setLanguageVisible] = useState(true);
   const [isLoginDetailsVisible, setIsLoginDetailsVisible] = useState(false);
   const [isChatVisible,setChatVisible]=useState(true)
   const [inputValue, setInputValue] = useState(""); 
   const [isConvent,setConvent]=useState(false);
   const [isFeedback,setFeedback]=useState(false);
-  // const [isClose,se]
+  const [dataFromChat, setDataFromChat] = useState(null);
+
+  // Callback function to receive data from the child component
+  const handleDataFromChat = (data) => {
+    setDataFromChat(data);
+  };
+  console.log("Data From Input " + dataFromChat)
   const conVenienceHandler =()=>{
     setConvent(true);
   }
@@ -39,62 +43,56 @@ function App() {
     setIsCardsVisible(!isCardsVisible);
   };
  
-   const toggleAboutVisibility = () => {
-     
-      setIsAboutVisible(!isAboutVisible);
-    
-  }
+   
 
   const toggleLoginDetailsVisibility = () => {
     setIsLoginDetailsVisible(!isLoginDetailsVisible);
   };
-  const languageHandler =()=>{
-      setLanguageVisible(!isLanguageVisiable)
-  }
+
   const sendHandler =()=>{
       setChatVisible(false);
       setInputValue("");
   }
-  // const  langCloseHandler=()=>{
-  //   setLangClose(false);
-  // }
+  
   return (
     <div className="App h-screen overflow-y-hidden">
       <div className=" parent box w-[420px] h-full bg-white  mx-auto border-0 border-grey-100 rounded-2xl drop-shadow-2xl flex flex-col ">
           <div className="navigationMenu  fixed_item fixed-first ">
             <NavBar
-             onHamburgerClick={toggleScreenPartVisibility} 
-             onHomeClick={toggleAboutVisibility}
+             onHamburgerClick={toggleScreenPartVisibility}
+             
                         
              />
           </div>
           <div className={`screen-part 
-           ${isScreenPartVisible ? "" : "hidden"}
+           
            
           
            `} >
             <div className={` scrolling-content midbar mx-3 overflow-x-hidden
-            ${isAboutVisible?"":"hidden"}
-            ${isChatVisible? "" :"hidden"}
-            ${isLanguageVisiable? "" :"hidden"}
+            ${isChatVisible?"":"hidden"}   
+            ${isScreenPartVisible ? "" : "hidden"}        
              
             `}>
              <FormSection />
             <Cards  />
+            <AboutSection/>
             </div>
-            <div className={`chatBox fixed_item fixed-last z-0
+            <div className={`chatBox fixed_item fixed-last z-0  
               `} 
             >
-            <ChatSection onLangClick={languageHandler}
+            <ChatSection 
              onSendClick={sendHandler}
              setInputValue={setInputValue}
              inputValue={inputValue}
+             sendDataToParent={handleDataFromChat} 
             />
             </div>
         </div>
         <div className={`secondCard  
-           fixed bottom-0 mx-3 border rounded-tl-[20px] rounded-tr-[20px]  animated-element bg-white
+           fixed bottom-0 mx-3 border rounded-tl-[20px] rounded-tr-[20px]  animated-element bg-gray-300
            ${isScreenPartVisible ? "hidden":""}
+           ${isChatVisible?"":"hidden"}  
            ` } >
           <Cards2   />
           <Login onLoginButtonClick={toggleLoginDetailsVisibility} />
@@ -104,13 +102,7 @@ function App() {
         `}>
           <LoginDetails />
         </div>
-        <div className={`about  absolute top-20  bg-white 
-          ${isAboutVisible ? "hidden" : ""}
-          `} >
-          <AboutSection/>
-        </div>
-         
-            
+                        
                             
          
         
@@ -118,6 +110,15 @@ function App() {
        ${isFeedback?"":"hidden"}
       `}>
         <Feedback/>
+      </div>
+      <div className={`chat_element chat-scroll bg-red-500  w-[100%] h-[full] overflow-x-hidden
+          ${isChatVisible?'hidden':''}
+      `   
+    }>
+        <Input/>
+        <Output inputData={dataFromChat}/>
+        
+        
       </div>
       </div>
     </div>

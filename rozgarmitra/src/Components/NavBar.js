@@ -1,7 +1,10 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouse,faBars} from '@fortawesome/free-solid-svg-icons'
-export default function NavBar({onHamburgerClick , onHomeClick}) {
+export default function NavBar({onHamburgerClick}) {
+  const onHomeClick=()=>{
+     window.location.reload();
+  }
   return (
     <div className='w-[100%]  flex  justify-between  navBar-item  '>
         <div className="left-part flex  gap-3">
@@ -10,7 +13,7 @@ export default function NavBar({onHamburgerClick , onHomeClick}) {
                    <FontAwesomeIcon icon={faBars}  className='text-[23px] cursor-pointer' onClick={onHamburgerClick} />
                 </div>
                 <div className="home ">
-                   <FontAwesomeIcon icon={faHouse} className='text-[23px] cursor-pointer' onClick={onHomeClick} />
+                   <FontAwesomeIcon icon={faHouse} className='text-[23px] cursor-pointer' onClick={onHomeClick}  />
                 </div>
             </div>
             <div className="icon mt-3">

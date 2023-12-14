@@ -24,7 +24,7 @@ export default function Output({conVenience,feedBack}) {
 
   return (
     <>
-    <div className=' flex w-[300px] gap-2 mx-3 my-4  overflow-y-auto'>
+    <div className=' flex w-[300px] gap-2 mx-3 my-4  overflow-y-auto bg-green-500 '>
         <div className="icon">
           <img src={process.env.PUBLIC_URL + '/Rozgar Mitra Chat UI.jpeg'} alt="Error loading image" className='w-[34px] rounded-full ' />
         </div>

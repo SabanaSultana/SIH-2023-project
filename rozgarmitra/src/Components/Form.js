@@ -45,13 +45,20 @@ export default function Form() {
             <br/>
             <select name="places" id="place" className='border  mx-4  bc border-grey-700 w-[92%] py-2 rounded-lg shadow-sm hover:shadow-md my-1 hover:transition transform duration-300 delay-100 open_sans  text-[13px] hover:border-orange-300 font-normal'>
                  <option value="posting">Place Of Posting</option>
-                 <option value="Jaipur">Jaipur</option>
-                 <option value="Jodhpur">Jodhpur</option>
-                 <option value="Udaypur">Udaypur</option>
+                 <option value="Amritsar">Amritsar</option>
+                 <option value="Barnala">Barnala</option>
+                 <option value="Fazlika">Fazlika</option>
+                 <option value="Jalandhar">Jalandhar</option>
+                 <option value="Patiala">Patiala</option>
                  <option value="Moga">Moga</option>
+                 <option value="Chandigarh">Chandigarh</option>
             </select>
             <br/>
-          <button type="button" className='montserrat btn bg-orange-500 mx-4 py-2 rounded-lg shadow-sm  mb-2 mt-1 w-[92%] hover:scale-105 transition transform duration-500 delay-150 hover:shadow-md hover:-translate-y-0.5 font-semibold text-[15px]'> Search Jobs</button>
+          <button type="button" className='montserrat btn bg-orange-500 mx-4 py-2 rounded-lg shadow-sm  mb-2 mt-1 w-[92%] hover:scale-105 transition transform duration-500 delay-150 hover:shadow-md hover:-translate-y-0.5 font-semibold text-[15px]'> 
+              <a href="https://www.pgrkam.com/search-results/" target="_blank" rel="noopener noreferrer">
+                    Search Job
+              </a>
+          </button>
          </form>
     </div>
   )

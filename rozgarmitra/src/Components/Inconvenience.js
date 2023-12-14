@@ -5,11 +5,13 @@ export default function Inconvenience({setShowPopUp,showPopUp}) {
   const [inputValue, setInputValue] = useState('');
   const handleClearClick = () => {
     setInputValue(''); 
+    alert('clear click is working')
   };
   const [isComponentVisible, setComponentVisibility] = useState(true);
   // const [isThanksVisible, setThanksVisibility] = useState(false);
   const handleSubmit = () => {
     setComponentVisibility(false);
+    alert("you submit button is working")
     // setThanksVisibility(true);
 
   };
@@ -18,7 +20,7 @@ export default function Inconvenience({setShowPopUp,showPopUp}) {
   }
   
   return (
-    <div className='inConvenience absolute top-60  bg-gray-200  border bc  w-[70%]   ml-8 rounded-[10px] '>
+    <div className='inConvenience   bg-gray-200  border bc  w-[70%]   ml-8 rounded-[10px] '>
     {isComponentVisible && (
      <div>
         <div className="titleBar flex  justify-center items-center relatiive border-b-2 bc pb-2 pt-2  ">

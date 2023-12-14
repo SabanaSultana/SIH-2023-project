@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-export default function UserInput() {
+export default function Input({inputData}) {
     const [currentTime, setCurrentTime] = useState(new Date());
      useEffect(() => {      
        const intervalId = setInterval(() => {
@@ -17,10 +17,10 @@ export default function UserInput() {
       hour12: false,
     });
   return (
-    <div className=' flex w-[300px] gap-2 ml-30 mr-3 my-4  ml-20 pl-4 relative'>
-        <div className="rest flex flex-col w-[68%] mt-1  ">          
+    <div className=' flex w-[300px] gap-2 input-margin mr-3 my-4   pl-4 relative bg-sky-400 '>
+        <div className="rest flex flex-col w-[68%] mt-1 bg-yellow-500  ">          
            <div className="text bg-gray-400  rounded-[10px] p-2 ">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, inventore.                
+                  {inputData}               
             </div>
 
             <div className="time text-[14px]">

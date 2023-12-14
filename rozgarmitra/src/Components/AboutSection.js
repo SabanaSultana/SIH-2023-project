@@ -3,7 +3,7 @@ import React from 'react'
 export default function AboutSection() {
   return (
     <div className='flex flex-col gap-2 mx-3 my-3'>
-        <div className="about border-b-2 pb-3">
+        <div className="about border-b-2 border-t-2 pb-3 pt-3">
             <div className="title flex gap-1">
                 <img src={process.env.PUBLIC_URL + '/About.png'}  alt="Error loading image"  className='w-[32px]'/>
                 <h1 className='About_text'>About Rozgar MITRA</h1>
